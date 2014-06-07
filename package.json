@@ -1,0 +1,25 @@
+{
+  "name": "cocotte-datasource",
+  "description": "データソース",
+  "homepage": "https://github.com/yukik/cocotte-datasource",
+  "keywords": ["cocotte", "m2r"],
+  "author": "Yuki Kurata <yuki.kurata@gmail.com>",
+  "dependencies": {
+    "cocotte-fields": "*",
+    "cocotte-clone": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yukik/cocotte-datasource.git"
+  },
+  "main": "lib/datasource.js",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "readmeFilename": "README.md",
+  "license": "MIT"
+}
