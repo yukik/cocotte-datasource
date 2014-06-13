@@ -1,5 +1,4 @@
-
-Row
+Datasource
 ==============
 
 データソースオブジェクトのプロパティもしくはメソッドの説明  
@@ -21,8 +20,9 @@ Row
         + `cocotte-field-text`は、npmなどでで事前にインストールされているモジュールです
         + モジュールを追加する事で、フィールドの型を増やす事が出来ます
 
-# プロパティ
 
+
+# プロパティ
 
 ## name {String}
 
@@ -50,9 +50,12 @@ Row
 
   + 行数を返します
 
+
+
 # 順次処理
 
 行を順次取得し、それぞれに対してcallbackを実行します  
+この処理は、現在行を移動する事はありません
 
 ## every(callback)
 
@@ -92,19 +95,33 @@ Row
 
   + いずれかの行に対してcallbackの結果が真であるかを調べます
 
+
+
 # 行の操作
 
-## add(data)
+## add({Object} before)
 
   + 行を追加します
-  + dataに初期値を設定します
-  + dataを省略する事も出来ます
+  + beforeに編集前の値を設定します
+  + beforeを省略する事も出来ます
   + 戻り値は追加された行です
+
+## fill (fillData, noCheck)
+
+  + 複数の行を一気に追加します
+  + fillDataの形式は次の通りです
+    + 
 
 ## remove(row)
 
   + 指定行をデータソースから排除します
   + rowを省略した場合は現在行です
+
+## removeAll()
+
+  + 全ての行をデータソースから排除します
+
+
 
 # 現在行の移動
 
@@ -126,23 +143,72 @@ Row
 
 
 
+# イベント
 
+## moved
 
+  + 現在行が移動した
 
+## added (row)
 
+  + 行が追加された
 
+## updated (row, names)
 
+  + 値が更新された
 
+## selected (row)
 
+  + 行に選択された
 
+## avoided (row)
 
+  + 行の選択が解除された
 
+## deleted (row)
 
+  + 行に削除フラグが追加された
 
+## revived (row)
 
+  + 行の削除フラグが取り除かれた
 
+## removed (row)
 
+  + 行がデータソースから取り除かれた
+  + このイベントはremoveメソッドによりイベントが発行されます
 
+## removedAll ()
 
+  + すべての行がデータソースから取り除かれた
+  + このイベントはremoveAllメソッドによりイベントが発行されます
 
+## updated error (row, name)
 
+  + エラー内容が変更された
+
+## updated name (field)
+
+  + 名称が変更された
+
+## updated caption (field)
+
+  + 表示名が変更された
+
+## updated undefinedTo (field, isFn)
+
+  + undefindToの値が変更された
+  + 第一引数は、値が関数であるかどうか
+
+## updated defaultTo (field, isFn)
+
+  + defaultToの値が変更された
+  + 第一引数は、値が関数であるかどうか
+
+## added validation (field, validation)
+
+  + 検証が追加された
+
+## removed validation (field, validation)
+
+  + 検証が削除された
