@@ -1,7 +1,7 @@
 
 
 
-require('./move');
+// require('./xx');
 
 
 
