@@ -1,10 +1,8 @@
-/**
- * データソース内のイベント
- */
-
-var Datasource = require('..');
-var Field = require('cocotte-field');
-var Row = require('cocotte-row');
+/*global Cocotte*/
+var isClient = typeof window === 'object';
+var Datasource = isClient ? Cocotte.Datasource : require('..');
+var Field      = isClient ? Cocotte.Field      : require('cocotte-field');
+var Row        = isClient ? Cocotte.Row        : require('cocotte-row');
 
 var config = {
   fields: {

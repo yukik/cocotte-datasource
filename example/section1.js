@@ -1,5 +1,7 @@
-var Datasource = require('..');
-var Field = require('cocotte-field');
+/*global Cocotte*/
+var isClient = typeof window === 'object';
+var Datasource = isClient ? Cocotte.Datasource : require('..');
+var Field      = isClient ? Cocotte.Field      : require('cocotte-field');
 
 // var config = {
 //   fields: {
@@ -12,12 +14,7 @@ var Field = require('cocotte-field');
 //     {id: '456', name: 'bar'}
 //   ]
 // };
-
 // var ds = new Datasource(config);
-
-
-
-
 
 var config = {
   fields: {
@@ -27,7 +24,6 @@ var config = {
   }
 };
 var ds = new Datasource(config);
-
 
 ds.on('added', function(row) {
   console.log('added---', row.id);
@@ -41,4 +37,6 @@ var row = ds.add();
 row.name = 'foo';
 
 // ds.rows[0].name = 'baz';
+
+
 
