@@ -188,27 +188,35 @@ var rows = [
 
 (注意)データソースが保持していない行インスタンスがイベントを発行することがあります  
 その際、連動してデータソースが以下のイベントを実行することがあります  
-データソースに存在しない行を除外したい場合は、`ds.exists(row)`と併用する必要が有ります
+データソースに存在しない行を除外したい場合は、`ds.exists(row)`と併用する必要が有ります  
+これはデータテーブルにイベント発行する必要があるためであり、正常な動作です
 
 
-## added (row)
+## added ({Row} row)
 
   + 行が追加された
 
 
-## updated (row, fieldName)
+## updated ({Row} row, {String} fieldName)
 
   + 値が更新された
 
 
-## threw (row, fieldName)
+## threw ({Row} row, {String} fieldName)
 
   + 値の更新に失敗した
 
 
-## removed (row)
+## removed ({Row} row)
 
   + 行が取り除かれた
+
+
+## all ({String} eventName, {Row} row, {String} fieldName)
+
+  + すべてのイベントを捕捉することができます
+  + 引数は、第一引数にイベント名、それ以降にそのイベントの引数です
+
 
 
 

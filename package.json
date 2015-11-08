@@ -22,7 +22,7 @@
     "url": "git://github.com/yukik/cocotte-datasource.git"
   },
   "main": "lib/datasource.js",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "scripts": {
     "test": "node ./test/test.js"
   },
